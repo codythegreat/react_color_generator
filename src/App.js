@@ -1,25 +1,35 @@
-import logo from './logo.svg';
 import './App.css';
+import Header from './components/Header'
+import ColorContainer from './components/ColorContainer';
+import { useState, useEffect } from 'react';
 
 function App() {
+  const colors = require('nice-color-palettes/1000');
+  const [colorIndex, setColorIndex] = useState(Math.floor(Math.random()*colors.length));
+
+  useEffect((colorIndex) => {
+    function handleKeyDown(event) {
+      if (event.code === "Space") {
+        setColorIndex(Math.floor(Math.random() * 1000));
+      }
+    }
+    document.addEventListener("keydown", handleKeyDown);
+
+    return function cleanup() {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App" >
+      <Header text={"Color Generator"}></Header>
+      <Header>{colorIndex}</Header>
+      <ColorContainer colors={colors[colorIndex]}>
+      </ColorContainer>
     </div>
   );
 }
 
 export default App;
+
+
