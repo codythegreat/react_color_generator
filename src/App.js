@@ -10,7 +10,7 @@ function App() {
   useEffect((colorIndex) => {
     function handleKeyDown(event) {
       if (event.code === "Space") {
-        setColorIndex(Math.floor(Math.random() * 1000));
+        setColorIndex(Math.floor(Math.random() * colors.length));
       }
     }
     document.addEventListener("keydown", handleKeyDown);
@@ -23,7 +23,6 @@ function App() {
   return (
     <div className="App" >
       <Header text={"Color Generator"}></Header>
-      <Header>{colorIndex}</Header>
       <ColorContainer colors={colors[colorIndex]}>
       </ColorContainer>
     </div>
@@ -31,5 +30,3 @@ function App() {
 }
 
 export default App;
-
-
