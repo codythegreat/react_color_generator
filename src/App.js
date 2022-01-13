@@ -5,12 +5,12 @@ import { useState, useEffect } from 'react';
 
 function App() {
   const colors = require('nice-color-palettes/1000');
-  const [colorIndex, setColorIndex] = useState(Math.floor(Math.random()*colors.length));
+  const [colorIndex, setColorIndex] = useState(Math.floor(Math.random()*992));
 
   useEffect((colorIndex) => {
     function handleKeyDown(event) {
       if (event.code === "Space") {
-        setColorIndex(Math.floor(Math.random() * colors.length));
+        setColorIndex(Math.floor(Math.random() * 992));
       }
     }
     document.addEventListener("keydown", handleKeyDown);
