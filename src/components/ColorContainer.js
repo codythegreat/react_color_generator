@@ -7,7 +7,7 @@ const ColorContainer = (props) => {
             <div
                 style={{
                     display: "flex",
-                    height: 'calc(100vh - 60px)' 
+                    height: 'calc(100vh - 87px)' 
                 }}        
             >
                 <Color colorCode={props.colors[0]} colorName={"Grey"}></Color>
