@@ -22,7 +22,7 @@ function App() {
 
   return (
     <div className="App" >
-      <Header text={"Color Generator"}></Header>
+      <Header text={"Color Generator"} subtext={"Press the spacebar to generate a new palette"}></Header>
       <ColorContainer colors={colors[colorIndex]}>
       </ColorContainer>
     </div>
